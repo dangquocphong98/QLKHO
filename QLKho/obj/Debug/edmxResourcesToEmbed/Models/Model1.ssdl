@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLKhoContextModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietHoaDons">
+    <Key>
+      <PropertyRef Name="MaChiTietHoaDon" />
+    </Key>
+    <Property Name="MaChiTietHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaHoaDon" Type="int" Nullable="false" />
+    <Property Name="MaSanPham" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HoaDons">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayXuat" Type="datetime" Nullable="false" />
+    <Property Name="TongTien" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiSanPhams">
+    <Key>
+      <PropertyRef Name="MaLoaiSanPham" />
+    </Key>
+    <Property Name="MaLoaiSanPham" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TenLoaiSanPham" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SanPhams">
+    <Key>
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaSanPham" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TenSanPham" Type="nvarchar(max)" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+    <Property Name="DonGia" Type="int" Nullable="false" />
+    <Property Name="NgayTao" Type="datetime" Nullable="false" />
+    <Property Name="NgaySua" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sp_LoaiSp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaSanPham" Type="nvarchar(max)" />
+    <Property Name="MaLoaiSanPham" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="QLKhoContextModelStoreContainer">
+    <EntitySet Name="ChiTietHoaDons" EntityType="Self.ChiTietHoaDons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiSanPhams" EntityType="Self.LoaiSanPhams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPhams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sp_LoaiSp" EntityType="Self.Sp_LoaiSp" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
